@@ -1,5 +1,5 @@
 import React from 'react';
-import MyStack from './src/pages/MyStack';
+import MyStack from './src/screens/MyStack';
 
 const App = () => {
   return (
