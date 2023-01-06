@@ -10,12 +10,41 @@ app.get('/', (req, res) => {
 });
 
 io.on('connection', (socket) => {
-    socket.emit("loading", JSON.stringify(messages));
+    console.log('a user connected');
+    socket.emit("loadingMessages", JSON.stringify(messages));
 
-    socket.on("messageClient", (arg) => {
-        setTimeout((() => {socket.emit("messageServer", `${arg} from server`)}, 5000));
+    socket.on("sendMessageClient", (text) => {
+
+    socket.emit("getMessageServer", JSON.stringify( {
+        id: getRandomInt(1000),
+        text: `${text}`,
+        user: {
+            id: 1,
+            name: 'User',
+        },
+        isAdmin: false,
+        isRead: true
+    }));
+
+
+     setTimeout(() => {
+         socket.emit("getMessageServer", JSON.stringify( {
+             id: getRandomInt(1000),
+             text: `${text} from Admin`,
+             user: {
+                 id: 1,
+                 name: 'Employee 574',
+             },
+             isAdmin: true,
+             isRead: true
+         }));
+     }, 3000);
     });
 });
+
+function getRandomInt(max) {
+    return Math.floor(Math.random() * max);
+}
 
 server.listen(3000, () => {
     console.log('listening on *:3000');

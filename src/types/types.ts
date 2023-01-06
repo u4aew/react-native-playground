@@ -1,4 +1,4 @@
-export type Message = {
+export type PropsMessage = {
   id: string;
   user: {
     id: string;

@@ -1,4 +1,4 @@
-const message = [
+const messages = [
     {
         id: 1,
         text: 'Hello User',
@@ -6,7 +6,7 @@ const message = [
             id: 1,
             name: 'Employee 574',
         },
-        isAdmin: false,
+        isAdmin: true,
         isRead: true
     },
     {
@@ -18,7 +18,27 @@ const message = [
         },
         isAdmin: false,
         isRead: true
+    },
+    {
+        id: 3,
+        text: 'Hello Admin',
+        user: {
+            id: 1,
+            name: 'Mike Smith'
+        },
+        isAdmin: false,
+        isRead: true
+    },
+    {
+        id: 4,
+        text: 'Hello Admin',
+        user: {
+            id: 1,
+            name: 'Mike Smith'
+        },
+        isAdmin: false,
+        isRead: true
     }
 ]
 
-module.exports = {message};
+module.exports = {messages};

@@ -1,17 +1,22 @@
 import React from 'react';
-import {View, Text, TextInput, StyleSheet} from 'react-native';
-const InputText = () => {
+import {View, TextInputProps, TextInput, StyleSheet} from 'react-native';
+
+
+const InputText = (props: TextInputProps) => {
   return (
     <View>
-      <TextInput style={style.input} />
+      <TextInput placeholderTextColor={'#999a9b'} style={style.input} {...props} />
     </View>
   );
 };
 
 const style = StyleSheet.create({
   input: {
-    backgroundColor: 'violet',
-    height: 50,
+    backgroundColor: '#f1f3f5',
+    borderRadius: 5,
+    height: 45,
+    paddingVertical: 10,
+    paddingHorizontal: 10,
   }
 });
 
