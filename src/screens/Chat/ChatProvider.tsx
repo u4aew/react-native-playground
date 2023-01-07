@@ -1,7 +1,8 @@
 import React, {useCallback, useEffect} from 'react';
 import { io } from "socket.io-client";
-const socket = io('http://localhost:3000');
 import {PropsMessage} from '../../types/types';
+
+const socket = io('http://localhost:3000');
 export const ChatContext = React.createContext<PropsMessage[]>([]);
 
 type Props = {
@@ -14,7 +15,6 @@ const ChatProvider = ({children}: Props): JSX.Element => {
 
   useEffect(() => {
     socket.on("loadingMessages", (messages) => {
-      console.log('loadingMessages', messages);
       setMessages(JSON.parse(messages));
     });
   },[])
