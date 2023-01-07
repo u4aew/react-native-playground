@@ -5,7 +5,7 @@ import {
   KeyboardAvoidingView,
   Platform,
   SafeAreaView,
-  StyleSheet,
+  StyleSheet, TextInput,
   TouchableWithoutFeedback, View
 } from "react-native";
 import ChatMessage from "../../components/ChatMessage/ChatMessage";
@@ -18,10 +18,13 @@ type Props = {
 }
 const Chat = ({onSubmit}: Props): JSX.Element => {
   const height = useHeaderHeight()
-  const value = useContext(ChatContext)
+  const messages = useContext(ChatContext)
+  const ref = React.useRef(null);
 
   const onSubmitEditing = useCallback((e: any) => {
     onSubmit(e.nativeEvent.text)
+    // @ts-ignore
+    ref.current.clear()
   }, []);
 
   return (<SafeAreaView style={styles.container}>
@@ -34,10 +37,10 @@ const Chat = ({onSubmit}: Props): JSX.Element => {
           paddingTop: 25,
           paddingBottom: 25,
           paddingHorizontal: 15,
-        }} data={value} renderItem={({item}) => <ChatMessage key={item.id} {...item} />} style={styles.container}/>
+        }} data={messages} renderItem={({item}) => <ChatMessage key={item.id} {...item} />} style={styles.container}/>
       </TouchableWithoutFeedback>
       <View style={styles.input}>
-        <InputText onSubmitEditing={onSubmitEditing} placeholder={'Enter your message'} />
+        <InputText ref={ref} onSubmitEditing={onSubmitEditing} placeholder={'Enter your message'} />
       </View>
     </KeyboardAvoidingView>
   </SafeAreaView>)

@@ -3,42 +3,24 @@ const messages = [
         id: 1,
         text: 'Hello User',
         user: {
-            id: 1,
-            name: 'Employee 574',
+            id: 2,
+            name: 'Admin',
         },
         isAdmin: true,
-        isRead: true
+        isRead: true,
+        date: '2023-01-07T06:10:46.432Z',
     },
     {
         id: 2,
         text: 'Hello Admin',
         user: {
             id: 1,
-            name: 'Mike Smith'
+            name: 'User'
         },
         isAdmin: false,
-        isRead: true
+        isRead: true,
+        date: '2023-01-07T06:12:46.432Z',
     },
-    {
-        id: 3,
-        text: 'Hello Admin',
-        user: {
-            id: 1,
-            name: 'Mike Smith'
-        },
-        isAdmin: false,
-        isRead: true
-    },
-    {
-        id: 4,
-        text: 'Hello Admin',
-        user: {
-            id: 1,
-            name: 'Mike Smith'
-        },
-        isAdmin: false,
-        isRead: true
-    }
 ]
 
 module.exports = {messages};

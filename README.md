@@ -7,4 +7,4 @@ mock-server/package.json
 ```
 Mock server starts with websockets
 
-![Chat app](img/chat.jpeg)
+![Chat app](img/chat.gif)
